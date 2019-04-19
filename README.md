@@ -9,5 +9,4 @@ Using Psuedo-random Number Gernerator powered by modulo(%)
 
 #### Things to work on
 Error-checking and command line arguement input
-
 Putting charset inside main()
