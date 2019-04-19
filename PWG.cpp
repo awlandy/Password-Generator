@@ -1,4 +1,4 @@
-//#include "pch.h"
+#include "pch.h"
 #include <iostream>
 #include <random> // for std::mt19937
 #include <ctime> // for std::time
@@ -6,35 +6,35 @@
 #include <iterator> // for std::size
 #include <cstring> // for strcpy, strcat and strlen
 
-char zerotonine[] = "0123456789";
+const char zerotonine[] = "0123456789";
 const unsigned char option0 = 0x1; // hex for 0000 0001
 
-char capAtoZ[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const char capAtoZ[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const unsigned char option1 = 0x2; // hex for 0000 0010
 
-char lowerAtoZ[] = "abcdefghijklmnopqrstuvwxyz";
+const char lowerAtoZ[] = "abcdefghijklmnopqrstuvwxyz";
 const unsigned char option2 = 0x4; // hex for 0000 0100
 
-char specialChar[] = "!\"#$%&\'()*+,-./:;<=>\?@[\\]^_`{|}~";
+const char specialChar[] = "!\"#$%&\'()*+,-./:;<=>\?@[\\]^_`{|}~";
 const unsigned char option3 = 0x8; // hex for 0000 1000
 
-int pwLength = 0;
 char charset[] = "";
 
-void askforPWlength() {	//ask user for password length for interact()
+int askforPWlength() {	//ask user for password length for interact()
 	char buffer[4] = "";
 	std::cout << "What is the length of the password that you want? Enter a <integer number>.\n";
 	std::cin >> buffer;
-	pwLength = std::atoi(buffer);
-	std::cout << "The entered length is " << pwLength << ".\n";
+	int len = std::atoi(buffer);
+	std::cout << "The entered length is " << len << ".\n";
+	return len;
 }
 
-int getyn(){
+int getyn() {
 	while (true)
 	{
 		char yn;
 		std::cin >> yn;
-		
+
 		// Check user input
 		if (yn == 'y' || yn == 'n')
 			return yn;
@@ -84,8 +84,8 @@ int interact() {
 
 //}
 
-int poccessOptions(int options) {
-	int len = sizeof zerotonine + sizeof capAtoZ + sizeof lowerAtoZ + sizeof specialChar;
+int poccessOptions(const int options) {
+	const int len = sizeof zerotonine + sizeof capAtoZ + sizeof lowerAtoZ + sizeof specialChar;
 	if (options & option0)
 		strcat_s(charset, len, zerotonine);
 	if (options & option1)
@@ -109,7 +109,7 @@ int main(int argc, char *argv[])
 	//	command(argc, *argv);
 	//if (pwLength == 0)
 
-	askforPWlength(); // get desired password length from user
+	int pwLength = askforPWlength(); // get desired password length from user
 
 	srand(time(NULL)); // seed with time since epoch
 
