@@ -115,7 +115,7 @@ int main(int argc, char *argv[])
 
 	int charsetlength = poccessOptions(result);  // get array length for randomGenerater()::max
 	for (int index = 0; index < pwLength; ++index) {
-		auto random_number = (rand() % (charsetlength)); // get a pseudo-random integer between 1 and 9
+		auto random_number = (rand() % (charsetlength)); // get a pseudo-random integer between 1 and strlen(charset)
 		std::cout << charset[random_number];
 	}
 	std::cout << "\n";
