@@ -21,7 +21,7 @@ const unsigned char option3 = 0x8; // hex for 0000 1000
 char charset[] = "";
 
 int askforPWlength() {	//ask user for password length for interact()
-	char buffer[6] = "";
+	char buffer[6] = "";	//limited to 99999
 	std::cout << "What is the length of the password that you want? Enter a <integer number>.\n";
 	std::cin >> buffer;
 	int len = std::atoi(buffer);
