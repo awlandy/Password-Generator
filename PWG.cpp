@@ -21,7 +21,7 @@ const unsigned char option3 = 0x8; // hex for 0000 1000
 char charset[] = "";
 
 int askforPWlength() {	//ask user for password length for interact()
-	char buffer[4] = "";
+	char buffer[6] = "";
 	std::cout << "What is the length of the password that you want? Enter a <integer number>.\n";
 	std::cin >> buffer;
 	int len = std::atoi(buffer);
@@ -50,7 +50,7 @@ int interact() {
 		std::cout << "Do you want numbers in the password? Enter <y/n>.\n";
 		yn = getyn();
 
-		if (yn = 'y')
+		if (yn == 'y')
 			options |= option0;
 		char yn = 'a';
 	}
@@ -58,7 +58,7 @@ int interact() {
 		std::cout << "Do you want capital letters in the password? Enter <y/n>.\n";
 		yn = getyn();
 
-		if (yn = 'y')
+		if (yn == 'y')
 			options |= option1;
 		char yn = 'a';
 	}
@@ -66,7 +66,7 @@ int interact() {
 		std::cout << "Do you want lower letters in the password? Enter <y/n>.\n";
 		yn = getyn();
 
-		if (yn = 'y')
+		if (yn == 'y')
 			options |= option2;
 		char yn = 'a';
 	}
@@ -74,7 +74,7 @@ int interact() {
 		std::cout << "Do you want special characters in the password? Enter <y/n>.\n";
 		yn = getyn();
 
-		if (yn = 'y')
+		if (yn == 'y')
 			options |= option3;
 	}
 	return options;
